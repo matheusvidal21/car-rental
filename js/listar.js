@@ -1,26 +1,26 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const vehicleContainer = document.getElementById('vehicle-container');
-  const API_URL = 'https://jsonplaceholder.typicode.com/posts'
+  const API_URL = 'https://my-json-server.typicode.com/matheusvidal21/fakeapi-cars/vehicles'
 
   async function fetchVehicles() {
     try {
       let vehicles = getByLocalStorage('vehicles');
   
-      if (vehicles) {
+      if (!vehicles) {
+        const response = await fetch(API_URL);
+        vehicles = await response.json();
+        saveToLocalStorage('vehicles', vehicles);
+      }
+
+      /*if (vehicles) {
         renderVehicles(vehicles);
       } else {
         const response = await fetch(API_URL);
-        const data = await response.json();
-  
-        vehicles = [
-          { id: 1, marca: "Toyota", modelo: "Corolla", ano: 2020, cor: "Prata", tipo: "Sedan", quilometragem: "50.000 km", portas: 4, imagem: "assets/images/placeholder.jpg" },
-          { id: 2, marca: "Honda", modelo: "Civic", ano: 2021, cor: "Preto", tipo: "Sedan", quilometragem: "40.000 km", portas: 4, imagem: "assets/images/placeholder.jpg" },
-          { id: 3, marca: "Ford", modelo: "EcoSport", ano: 2019, cor: "Branco", tipo: "SUV", quilometragem: "70.000 km", portas: 4, imagem: "assets/images/placeholder.jpg" },
-        ];
+        const vehicles = await response.json();
   
         getByLocalStorage('vehicles', vehicles);
-      }
+      }*/
   
       renderVehicles(vehicles);
     } catch (error) {
@@ -35,14 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = document.createElement('div');
       card.classList.add('vehicle-card');
       card.innerHTML = `
-        <img src="${vehicle.imagem}" alt="Imagem do veículo ${vehicle.marca} ${vehicle.modelo}">
+        <img src="${vehicle.image}" alt="Imagem do veículo ${vehicle.brand} ${vehicle.model}">
         <div class="vehicle-info">
-          <h3>${vehicle.marca} ${vehicle.modelo}</h3>
-          <p><strong>Ano:</strong> ${vehicle.ano}</p>
-          <p><strong>Cor:</strong> ${vehicle.cor}</p>
-          <p><strong>Tipo:</strong> ${vehicle.tipo}</p>
-          <p><strong>Quilometragem:</strong> ${vehicle.quilometragem}</p>
-          <p><strong>Portas:</strong> ${vehicle.portas}</p>
+          <h3>${vehicle.brand} ${vehicle.model}</h3>
+          <p><strong>Ano:</strong> ${vehicle.year}</p>
+          <p><strong>Tipo:</strong> ${vehicle.type}</p>
+          <p><strong>Quilometragem:</strong> ${vehicle.mileage}km</p>
         </div>
       `;
       vehicleContainer.appendChild(card);
