@@ -1,0 +1,12 @@
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 56px;
+  padding-block: 56px;
+}
+
+main div{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}

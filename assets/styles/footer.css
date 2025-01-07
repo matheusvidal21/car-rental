@@ -1,0 +1,16 @@
+footer {
+  position: relative;
+  width: 100%;
+  padding-block: 32px;
+  gap: 24px;
+  font: 14px/150% var(--font-family);
+}
+
+footer span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-right: auto;
+  color: var(--text-color-secondary);
+}
