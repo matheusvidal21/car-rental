@@ -3,3 +3,65 @@
 @import url(header.css);
 @import url(main.css);
 @import url(footer.css);
+
+main {
+  padding-inline: 16px;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+#form-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--background-color);
+  border: 1px solid var(--tarnished-silver);
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#form-register h2 {
+  text-align: center;
+  margin: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 80%;
+}
+
+.form-group label {
+  font: var(--text);
+  color: var(--tarnished-silver);
+}
+
+.form-group input {
+  padding: 8px;
+  border: 1px solid var(--tarnished-silver);
+  border-radius: 4px;
+  font: var(--text-md);
+  background-color: #EFEFEF;
+}
+
+button {
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: var(--whased-black);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font: var(--text-md);
+  width: 80%;
+}
+
+button:hover {
+  background-color: var(--tarnished-silver);
+}
