@@ -5,22 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function fetchVehicles() {
     try {
-      let vehicles = getByLocalStorage('vehicles');
-  
-      if (!vehicles) {
-        const response = await fetch(API_URL);
-        vehicles = await response.json();
-        saveToLocalStorage('vehicles', vehicles);
-      }
+      const response = await fetch(API_URL);
+      vehicles = await response.json();
+      saveToLocalStorage('vehicles', vehicles);
 
-      /*if (vehicles) {
-        renderVehicles(vehicles);
-      } else {
-        const response = await fetch(API_URL);
-        const vehicles = await response.json();
-  
-        getByLocalStorage('vehicles', vehicles);
-      }*/
   
       renderVehicles(vehicles);
     } catch (error) {
